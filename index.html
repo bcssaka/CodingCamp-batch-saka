@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Mini Project | Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-900 font-sans">
+    <nav class="flex items-center justify-between px-8 py-6 bg-white shadow-sm">
+      <div class="text-2xl font-bold text-blue-600">MyBrand</div>
+      <div class="space-x-6 hidden md:block">
+        <a href="#" class="hover:text-blue-600">Home</a>
+        <a href="#features" class="hover:text-blue-600">Features</a>
+        <a href="#contact" class="hover:text-blue-600">Contact</a>
+      </div>
+      <button
+        class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition"
+      >
+        Get Started
+      </button>
+    </nav>
+
+    <header
+      class="container mx-auto px-8 py-20 flex flex-col md:flex-row items-center"
+    >
+      <div class="md:w-1/2 mb-10 md:mb-0">
+        <h1 class="text-5xl font-extrabold leading-tight mb-6">
+          Build your future with <span class="text-blue-600">Mini Project</span>
+        </h1>
+        <p class="text-lg text-gray-600 mb-8">
+          This is a simple landing page built using Tailwind CSS for my bootcamp
+          assignment. Clean, fast, and fully responsive.
+        </p>
+        <div class="flex space-x-4">
+          <button
+            class="bg-blue-600 text-white px-8 py-3 rounded-md shadow-lg hover:bg-blue-700"
+          >
+            Explore Now
+          </button>
+          <button
+            class="border border-gray-300 px-8 py-3 rounded-md hover:bg-gray-100"
+          >
+            Learn More
+          </button>
+        </div>
+      </div>
+      <div class="md:w-1/2">
+        <img
+          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
+          alt="Coding"
+          class="rounded-xl shadow-2xl"
+        />
+      </div>
+    </header>
+
+    <section id="features" class="bg-white py-20">
+      <div class="container mx-auto px-8 text-center">
+        <h2 class="text-3xl font-bold mb-12">Why Choose This?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div class="p-8 border rounded-xl hover:shadow-xl transition">
+            <div class="text-blue-600 text-4xl mb-4">⚡</div>
+            <h3 class="text-xl font-semibold mb-2">Fast Performance</h3>
+            <p class="text-gray-500">
+              Optimized for speed and accessibility across all devices.
+            </p>
+          </div>
+          <div class="p-8 border rounded-xl hover:shadow-xl transition">
+            <div class="text-blue-600 text-4xl mb-4">🎨</div>
+            <h3 class="text-xl font-semibold mb-2">Modern Design</h3>
+            <p class="text-gray-500">
+              Using utility-first CSS to create beautiful user interfaces.
+            </p>
+          </div>
+          <div class="p-8 border rounded-xl hover:shadow-xl transition">
+            <div class="text-blue-600 text-4xl mb-4">📱</div>
+            <h3 class="text-xl font-semibold mb-2">Responsive</h3>
+            <p class="text-gray-500">
+              Looks great on mobile, tablet, and desktop screens.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-10">
+      <div class="container mx-auto px-8 text-center">
+        <p>&copy; 2026 Bootcamp Mini Project. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
