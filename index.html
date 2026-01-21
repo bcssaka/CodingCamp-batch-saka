@@ -3,7 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Mini Project | Landing Page</title>
+
+    <link rel="icon" type="image/svg+xml" href="./assets/logo.svg" />
+    <title>
+      Transforming Ideas into Digital Reality - Web Developer - Sakarioka.com
+    </title>
+    <meta
+      name="description"
+      content="Professional web development services by Sakarioka.com. Specializing in high-performance landing pages, custom websites, and SEO optimization to transform your digital ideas into reality."
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sakarioka.com/" />
+    <meta
+      property="og:title"
+      content="Transforming Ideas into Digital Reality - Sakarioka.com"
+    />
+    <meta
+      property="og:description"
+      content="High-performance web development services tailored to your business needs."
+    />
+    <meta property="og:image" content="./assets/logo.svg" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="bg-gray-50 text-gray-900 font-sans">
@@ -329,7 +349,7 @@
         </div>
 
         <form
-          action="#"
+          id="contact-form"
           class="bg-white p-8 border rounded-2xl shadow-md space-y-6"
         >
           <div>
@@ -364,6 +384,21 @@
 
           <div>
             <label
+              for="phone"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Phone Number</label
+            >
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="6281234567890"
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:outline-none transition"
+            />
+          </div>
+
+          <div>
+            <label
               for="message"
               class="block text-sm font-medium text-gray-700 mb-1"
               >Message</label
@@ -372,13 +407,14 @@
               id="message"
               name="message"
               rows="4"
-              placeholder="Tell me about your project..."
+              placeholder="Tell me your idea..."
               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:outline-none transition"
             ></textarea>
           </div>
 
           <button
             type="submit"
+            id="submit-btn"
             class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition shadow-lg"
           >
             Send Message
@@ -517,6 +553,32 @@
           top: 0,
           behavior: 'smooth',
         })
+      })
+    </script>
+
+    <script>
+      const scriptURL =
+        'https://script.google.com/macros/s/AKfycbxoDEZ-ribPSpbSTIn42hRmY-beYB_U-U_itCNkPtnl5L4iENjlsoGfFnPkINj2MNTF/exec'
+      const form = document.getElementById('contact-form')
+      const btn = document.getElementById('submit-btn')
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        btn.disabled = true
+        btn.innerHTML = 'Sending...'
+
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+          .then((response) => {
+            btn.disabled = false
+            btn.innerHTML = 'Send Message'
+            alert('Thanks for reaching out! I will get back to you soon.')
+            form.reset()
+          })
+          .catch((error) => {
+            btn.disabled = false
+            btn.innerHTML = 'Send Message'
+            console.error('Error!', error.message)
+          })
       })
     </script>
   </body>
