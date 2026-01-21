@@ -12,6 +12,7 @@
       <div class="space-x-6 hidden md:block">
         <a href="#" class="hover:text-blue-600">Home</a>
         <a href="#features" class="hover:text-blue-600">Features</a>
+        <a href="#pricing" class="hover:text-blue-600">Pricing</a>
         <a href="#contact" class="hover:text-blue-600">Contact</a>
       </div>
       <button
@@ -83,7 +84,82 @@
       </div>
     </section>
 
-    <section id="contact" class="py-20 bg-gray-50 scroll-mt-20">
+    <section id="pricing" class="bg-gray-50 py-20 scroll-mt-20">
+      <div class="container mx-auto px-8 text-center">
+        <h2 class="text-3xl font-bold mb-4">Pricing Plans</h2>
+        <p class="text-gray-600 mb-12 max-w-lg mx-auto">
+          Choose the perfect package for your business needs. Simple pricing
+          with no hidden fees.
+        </p>
+
+        <div class="flex flex-col md:flex-row justify-center gap-8">
+          <div
+            class="bg-white p-8 border rounded-2xl shadow-sm hover:shadow-xl transition-all md:w-80"
+          >
+            <h3 class="text-xl font-bold mb-2">One Day Website</h3>
+            <p class="text-gray-500 mb-6 text-sm">
+              Perfect for landing pages and quick launches.
+            </p>
+            <div class="text-3xl font-bold text-blue-600 mb-6">Rp1.000.000</div>
+            <ul class="text-left space-y-3 mb-8 text-gray-600">
+              <li class="flex items-center">
+                <span class="text-green-500 mr-2">✓</span> 1 Page Design
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-500 mr-2">✓</span> 24 Hour Delivery
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-500 mr-2">✓</span> Mobile Responsive
+              </li>
+            </ul>
+            <button
+              class="w-full border border-blue-600 text-blue-600 py-2 rounded-lg hover:bg-blue-50 transition font-semibold"
+            >
+              Choose Plan
+            </button>
+          </div>
+
+          <div
+            class="bg-white p-8 border-2 border-blue-600 rounded-2xl shadow-xl transition-all md:w-80 relative transform md:-translate-y-4"
+          >
+            <div
+              class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1 rounded-full uppercase"
+            >
+              Most Popular
+            </div>
+            <h3 class="text-xl font-bold mb-2">Standard Website</h3>
+            <p class="text-gray-500 mb-6 text-sm">
+              Best for small businesses and portfolios.
+            </p>
+            <div class="text-3xl font-bold text-blue-600 mb-6">
+              <span class="text-sm text-gray-400 font-normal">from</span>
+              Rp3.000.000
+            </div>
+            <ul class="text-left space-y-3 mb-8 text-gray-600">
+              <li class="flex items-center">
+                <span class="text-green-500 mr-2">✓</span> Up to 5 Pages
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-500 mr-2">✓</span> SEO Optimization
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-500 mr-2">✓</span> Custom Domain Setup
+              </li>
+              <li class="flex items-center">
+                <span class="text-green-500 mr-2">✓</span> 7 Days Support
+              </li>
+            </ul>
+            <button
+              class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold"
+            >
+              Choose Plan
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="bg-white py-20 scroll-mt-20">
       <div class="container mx-auto px-8 max-w-2xl">
         <div class="text-center mb-12">
           <h2 class="text-3xl font-bold">Get In Touch</h2>
@@ -92,7 +168,10 @@
           </p>
         </div>
 
-        <form action="#" class="bg-white p-8 rounded-2xl shadow-md space-y-6">
+        <form
+          action="#"
+          class="bg-white p-8 border rounded-2xl shadow-md space-y-6"
+        >
           <div>
             <label
               for="name"
