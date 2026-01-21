@@ -51,11 +51,12 @@
         >
       </div>
 
-      <button
+      <a
+        href="#contact"
         class="bg-blue-600 text-white px-6 py-2.5 rounded-xl font-semibold hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-200 transition-all active:scale-95"
       >
         Get Started
-      </button>
+      </a>
     </nav>
 
     <header
@@ -362,6 +363,7 @@
               type="text"
               id="name"
               name="name"
+              required
               placeholder="John Doe"
               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:outline-none transition"
             />
@@ -377,6 +379,7 @@
               type="email"
               id="email"
               name="email"
+              required
               placeholder="john@example.com"
               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:outline-none transition"
             />
@@ -392,6 +395,8 @@
               type="tel"
               id="phone"
               name="phone"
+              pattern="[0-9]+"
+              title="Please enter numbers only"
               placeholder="6281234567890"
               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:outline-none transition"
             />
@@ -406,16 +411,35 @@
             <textarea
               id="message"
               name="message"
+              required
               rows="4"
               placeholder="Tell me your idea..."
               class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:outline-none transition"
             ></textarea>
           </div>
 
+          <div
+            class="bg-gray-50 p-4 rounded-lg border border-dashed border-gray-300"
+          >
+            <label
+              for="captcha"
+              class="block text-sm font-medium text-gray-700 mb-2"
+              >Security Check:
+              <span id="captcha-question" class="font-bold text-blue-600"></span
+            ></label>
+            <input
+              type="number"
+              id="captcha-input"
+              required
+              placeholder="Your answer"
+              class="w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:outline-none transition"
+            />
+          </div>
+
           <button
             type="submit"
             id="submit-btn"
-            class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition shadow-lg"
+            class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition shadow-lg active:scale-95"
           >
             Send Message
           </button>
@@ -533,6 +557,8 @@
       </svg>
     </button>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
       const toTopBtn = document.getElementById('toTopBtn')
 
@@ -561,9 +587,37 @@
         'https://script.google.com/macros/s/AKfycbxoDEZ-ribPSpbSTIn42hRmY-beYB_U-U_itCNkPtnl5L4iENjlsoGfFnPkINj2MNTF/exec'
       const form = document.getElementById('contact-form')
       const btn = document.getElementById('submit-btn')
+      const captchaQuestion = document.getElementById('captcha-question')
+      const captchaInput = document.getElementById('captcha-input')
+
+      // --- Captcha Logic ---
+      let num1, num2, correctAnswer
+
+      function generateCaptcha() {
+        num1 = Math.floor(Math.random() * 10) + 1
+        num2 = Math.floor(Math.random() * 10) + 1
+        correctAnswer = num1 + num2
+        captchaQuestion.innerText = `${num1} + ${num2} = ?`
+      }
+
+      // Initialize captcha on page load
+      generateCaptcha()
 
       form.addEventListener('submit', (e) => {
         e.preventDefault()
+
+        // --- Validation: Check Captcha Answer ---
+        if (parseInt(captchaInput.value) !== correctAnswer) {
+          Swal.fire({
+            title: 'Security Check Failed',
+            text: 'The math answer is incorrect. Please try again.',
+            icon: 'warning',
+            confirmButtonColor: '#1E3A8A',
+          })
+          return // Stop the script here
+        }
+
+        // --- Proceed to Sending ---
         btn.disabled = true
         btn.innerHTML = 'Sending...'
 
@@ -571,13 +625,32 @@
           .then((response) => {
             btn.disabled = false
             btn.innerHTML = 'Send Message'
-            alert('Thanks for reaching out! I will get back to you soon.')
+
+            // Modern Success Alert
+            Swal.fire({
+              title: 'Success!',
+              text: 'Thanks for reaching out! I will get back to you soon.',
+              icon: 'success',
+              confirmButtonText: 'Great',
+              confirmButtonColor: '#1E3A8A',
+              borderRadius: '15px',
+            })
+
             form.reset()
+            generateCaptcha() // Refresh captcha for the next submission
           })
           .catch((error) => {
             btn.disabled = false
             btn.innerHTML = 'Send Message'
-            console.error('Error!', error.message)
+
+            // Modern Error Alert
+            Swal.fire({
+              title: 'Error!',
+              text: 'Something went wrong. Please try again.',
+              icon: 'error',
+              confirmButtonText: 'Close',
+              confirmButtonColor: '#ef4444',
+            })
           })
       })
     </script>
