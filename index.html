@@ -270,6 +270,7 @@
               </li>
             </ul>
             <button
+              onclick="selectPlan('One Day Website')"
               class="w-full border border-blue-600 text-blue-600 py-2 rounded-lg hover:bg-blue-50 transition font-semibold"
             >
               Choose Plan
@@ -304,6 +305,7 @@
               </li>
             </ul>
             <button
+              onclick="selectPlan('Standard Website')"
               class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold"
             >
               Choose Plan
@@ -334,6 +336,7 @@
               </li>
             </ul>
             <button
+              onclick="selectPlan('Custom Website')"
               class="w-full border border-blue-600 text-blue-600 py-2 rounded-lg hover:bg-blue-50 transition font-semibold"
             >
               Choose Plan
@@ -878,6 +881,24 @@
           confirmButtonText: 'I Agree',
           confirmButtonColor: '#1E3A8A',
         })
+      }
+    </script>
+
+    <script>
+      function selectPlan(planName) {
+        const messageArea = document.getElementById('message')
+        const contactSection = document.getElementById('contact')
+
+        // 1. Set the pre-filled message
+        messageArea.value = `Hi Sakarioka! I am interested in the "${planName}" package. Can we discuss how to get started?`
+
+        // 2. Smoothly scroll to the contact form
+        contactSection.scrollIntoView({ behavior: 'smooth' })
+
+        // 3. Optional: Put focus on the Name field so they can start typing immediately
+        setTimeout(() => {
+          document.getElementById('name').focus()
+        }, 800)
       }
     </script>
   </body>
