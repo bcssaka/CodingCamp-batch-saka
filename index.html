@@ -676,7 +676,8 @@
             <h4 class="text-white font-bold mb-6">Connect</h4>
             <div class="flex space-x-4">
               <a
-                href="#"
+                href="https://www.linkedin.com/in/sakarioka"
+                rel="nofollow"
                 class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition"
               >
                 <span class="sr-only">LinkedIn</span>
@@ -687,7 +688,8 @@
                 </svg>
               </a>
               <a
-                href="#"
+                href="https://github.com/bcssaka"
+                rel="nofollow"
                 class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition"
               >
                 <span class="sr-only">GitHub</span>
@@ -706,8 +708,18 @@
         >
           <p>&copy; 2026 Sakarioka.com. All rights reserved.</p>
           <div class="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" class="hover:text-white">Privacy Policy</a>
-            <a href="#" class="hover:text-white">Terms of Service</a>
+            <a
+              href="javascript:void(0)"
+              onclick="showPrivacy()"
+              class="hover:text-white transition"
+              >Privacy Policy</a
+            >
+            <a
+              href="javascript:void(0)"
+              onclick="showTerms()"
+              class="hover:text-white transition"
+              >Terms of Service</a
+            >
           </div>
         </div>
       </div>
@@ -829,6 +841,44 @@
             })
           })
       })
+    </script>
+
+    <script>
+      function showPrivacy() {
+        Swal.fire({
+          title: '<strong>Privacy Policy</strong>',
+          icon: 'info',
+          html: `
+            <div class="text-left text-sm space-y-4">
+              <p><strong>1. Data Collection:</strong> we only collect information that you voluntarily provide via our contact form (Name, Email, Phone, and Message).</p>
+              <p><strong>2. Use of Data:</strong> Your data is used solely to respond to your inquiries. We do not sell or share your personal information with third parties.</p>
+              <p><strong>3. Storage:</strong> Data submitted via our forms is stored securely in our private database (Google Sheets) for business communication purposes.</p>
+              <p><strong>4. Cookies:</strong> This website is a static landing page and does not use tracking cookies.</p>
+            </div>
+          `,
+          showCloseButton: true,
+          confirmButtonText: 'I Understand',
+          confirmButtonColor: '#1E3A8A',
+        })
+      }
+
+      function showTerms() {
+        Swal.fire({
+          title: '<strong>Terms of Service</strong>',
+          icon: 'info',
+          html: `
+            <div class="text-left text-sm space-y-4">
+              <p><strong>1. Services:</strong> Sakarioka.com provides web development and digital design services as described in the Pricing section.</p>
+              <p><strong>2. Payments:</strong> Project timelines and payment schedules are agreed upon individually per project contract.</p>
+              <p><strong>3. Intellectual Property:</strong> Once full payment is received, the ownership of the website code and design assets is transferred to the client.</p>
+              <p><strong>4. Liability:</strong> We are not responsible for any content uploaded by the client or third-party hosting failures after project delivery.</p>
+            </div>
+          `,
+          showCloseButton: true,
+          confirmButtonText: 'I Agree',
+          confirmButtonColor: '#1E3A8A',
+        })
+      }
     </script>
   </body>
 </html>
